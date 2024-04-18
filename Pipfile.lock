@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8e1c9f2db96a69245d278f6f18f24a6414f367a657e5eb9aca6105110a4452d5"
+            "sha256": "a27495fb706f4ff63f0feda6eeeaeeda4dd0ae142359a8ea5d35d3f21e7e8a49"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -43,6 +43,15 @@
             "markers": "python_version >= '3.8'",
             "version": "==4.3.0"
         },
+        "djangorestframework": {
+            "hashes": [
+                "sha256:3ccc0475bce968608cf30d07fb17d8e52d1d7fc8bfe779c905463200750cbca6",
+                "sha256:f88fad74183dfc7144b2756d0d2ac716ea5b4c7c9840995ac3bfd8ec034333c1"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.6'",
+            "version": "==3.15.1"
+        },
         "mysqlclient": {
             "hashes": [
                 "sha256:329e4eec086a2336fe3541f1ce095d87a6f169d1cc8ba7b04ac68bcb234c9711",
@@ -59,13 +68,22 @@
             "markers": "python_version >= '3.8'",
             "version": "==2.2.4"
         },
+        "segno": {
+            "hashes": [
+                "sha256:e90c6ff82c633f757a96d4b1fb06cc932589b5237f33be653f52252544ac64df",
+                "sha256:f23da78b059251c36e210d0cf5bfb1a9ec1604ae6e9f3d42f9a7c16d306d847e"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.5'",
+            "version": "==1.6.1"
+        },
         "sqlparse": {
             "hashes": [
-                "sha256:5430a4fe2ac7d0f93e66f1efc6e1338a41884b7ddf2a350cedd20ccc4d9d28f3",
-                "sha256:d446183e84b8349fa3061f0fe7f06ca94ba65b426946ffebe6e3e8295332420c"
+                "sha256:714d0a4932c059d16189f58ef5411ec2287a4360f17cdd0edd2d09d4c5087c93",
+                "sha256:c204494cd97479d0e39f28c93d46c0b2d5959c7b9ab904762ea6c7af211c8663"
             ],
-            "markers": "python_version >= '3.5'",
-            "version": "==0.4.4"
+            "markers": "python_version >= '3.8'",
+            "version": "==0.5.0"
         },
         "tzdata": {
             "hashes": [

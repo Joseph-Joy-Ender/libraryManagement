@@ -14,7 +14,7 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(models.Author)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ['first_name', 'date_of_birth']
+    list_display = ['name', 'date_of_birth']
 
 
 @admin.register(models.Genre)
