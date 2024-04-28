@@ -42,6 +42,16 @@ class Language(models.Model):
         return f"{self.name}"
 
 
+class Review(models.Model):
+    name = models.CharField(max_length=255)
+    message = models.TextField()
+    date = models.DateField(auto_now_add=True)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name} {self.message}"
+
+
 class BookInstance(models.Model):
     AVAILABLE = 'A',
     NOT_AVAILABLE = 'N',
