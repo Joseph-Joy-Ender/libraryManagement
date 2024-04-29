@@ -3,6 +3,8 @@ import uuid
 from django.db import models
 from django.conf import settings
 
+from catalogue.validators import validate_file_size
+
 
 # Create your models here.
 class Genre(models.Model):
@@ -24,6 +26,14 @@ class Book(models.Model):
 
     def list_genre(self):
         return ','.join(genre.name for genre in self.genre.all()[:2])
+
+
+class BookImage(models.Model):
+    book_image = models.ImageField(upload_to='catalogue/images', validators=[validate_file_size])
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='book_image')
+
+    # def __str__(self):
+    #     return f"{self.book_image}"
 
 
 class Author(models.Model):

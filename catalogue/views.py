@@ -1,12 +1,13 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 
-from catalogue.models import Book, Author, Review
+from catalogue.models import Book, Author, Review, BookImage
 from catalogue.pagination import DefaultPagination
-from catalogue.serializers import BookSerializer, AuthorSerializer, ReviewSerializer
+from catalogue.permissions import IsAdminOrReadOnly
+from catalogue.serializers import BookSerializer, AuthorSerializer, ReviewSerializer, BookImageSerializer
 
 
 # Create your views here.
@@ -14,6 +15,7 @@ from catalogue.serializers import BookSerializer, AuthorSerializer, ReviewSerial
 class BookViewSet(ModelViewSet):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
+    permission_classes = [IsAdminOrReadOnly]
     pagination_class = DefaultPagination
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['title', 'author']
@@ -27,12 +29,17 @@ class AuthorViewSet(ModelViewSet):
     serializer_class = AuthorSerializer
     permission_classes = [IsAuthenticated]
 
-    filter_backends = [SearchFilter]
+    filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['name']
     ordering_fields = ['name']
 
     def get_serializer_context(self):
         return {'request': self.request}
+
+
+class BookImageViewSet(ModelViewSet):
+    queryset = BookImage.objects.all()
+    serializer_class = BookImageSerializer
 
 
 class ReviewViewSet(ModelViewSet):

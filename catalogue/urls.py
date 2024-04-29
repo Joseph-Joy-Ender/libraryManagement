@@ -11,9 +11,13 @@ router.register('author', views.AuthorViewSet, 'authors')
 review_router = routers.NestedDefaultRouter(router, 'books', lookup='book')
 review_router.register('review', views.ReviewViewSet, 'review')
 
+image_router = routers.NestedDefaultRouter(router, 'books', lookup='book')
+image_router.register('bookImage', views.BookImageViewSet, 'bookImage')
+
 urlpatterns = [
     path("", include(router.urls)),
     path("", include(review_router.urls)),
+    path("", include(image_router.urls)),
     path("authors/", views.AuthorGenericList.as_view(), name="author"),
     path("authors/<int:pk>", views.AuthorGenericDetail.as_view(), name="author_detail")
 ]
